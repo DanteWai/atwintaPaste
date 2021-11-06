@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::name('pastes.')->prefix('pastes')->group(function(){
+Route::middleware('auth:sanctum')->name('pastes.')->prefix('pastes')->group(function(){
     Route::get('/', [PasteController::class, 'index'])->name('index');
     Route::get('/{id}', [PasteController::class, 'show'])->name('show');
     Route::post('/', [PasteController::class, 'index'])->name('store');
@@ -20,7 +20,8 @@ Route::name('users.')->prefix('users')->group(function(){
 });
 
 Route::name('auth.')->prefix('auth')->group(function(){
-    Route::post('/login', [AuthController::class, 'index'])->name('login');
-    Route::post('/register', [AuthController::class, 'index'])->name('register');
-    Route::post('/logout', [AuthController::class, 'index'])->name('logout');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/register', [AuthController::class, 'register'])->name('register');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/check', [AuthController::class, 'check'])->name('check');
 });
