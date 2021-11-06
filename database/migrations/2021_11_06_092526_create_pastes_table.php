@@ -15,12 +15,12 @@ class CreatePastesTable extends Migration
     {
         Schema::create('pastes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->string('title')->index();
             $table->string('slug')->unique();
             $table->string('access')->default('public')->index();
             $table->string('language')->nullable();
             $table->timestamp('expiration_time')->nullable();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
