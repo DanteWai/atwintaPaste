@@ -11,7 +11,7 @@ class ResponseService
         return [
             'status' => $status,
             'errors' => (object)$errors,
-            'data' => (object)$data,
+            'data' => $data,
         ];
     }
 

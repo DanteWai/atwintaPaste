@@ -31,10 +31,14 @@ class AuthService
     {
         return Auth::user();
     }
-    public function logout(){
+
+    public function logout()
+    {
         Auth::logout();
     }
-    public function isAuth(){
+
+    public function isAuth()
+    {
         return Auth::check();
     }
 }

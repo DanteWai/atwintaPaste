@@ -23,5 +23,5 @@ Route::name('auth.')->prefix('auth')->group(function(){
     Route::post('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/register', [AuthController::class, 'register'])->name('register');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/check', [AuthController::class, 'check'])->name('check');
+    Route::get('/check', [AuthController::class, 'check'])->name('check')->middleware('auth:sanctum');
 });

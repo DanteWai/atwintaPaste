@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Resources\UserResource;
 use App\Services\AuthService;
 use App\Services\Response\ResponseService;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -17,12 +19,18 @@ class AuthController extends Controller
     public function login(LoginRequest $request, AuthService $auth)
     {
         $isAuth = $auth->login($request->getDto());
+
         if (!$isAuth) {
-            return ResponseService::notAuthorize();
+            return ResponseService::send(
+                false,
+                401,
+                ['message' => 'Login or password is incorrect']
+            );
         }
 
-        return ResponseService::success($auth->user());
-
+        return ResponseService::success(
+            new UserResource($auth->user())
+        );
     }
 
     public function register(RegisterRequest $request, AuthService $auth)
@@ -42,12 +50,14 @@ class AuthController extends Controller
         ]);
     }
 
-    public function check(AuthService $auth){
+    public function check(AuthService $auth)
+    {
         if (!$auth->isAuth()) {
-            return ResponseService::success([
-                'message' => 'not authenticated'
-            ]);
+            return ResponseService::notAuthorize();
         }
-        return ResponseService::success($auth->user());
+
+        return ResponseService::success(
+            new UserResource($auth->user())
+        );
     }
 }
