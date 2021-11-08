@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AuthService
 {
@@ -20,11 +21,15 @@ class AuthService
 
     public function register($dto)
     {
-        return User::create([
+        $user = User::create([
             'login' => $dto->login,
             'email' => $dto->email,
             'password' => Hash::make($dto->password),
         ]);
+
+        Auth::login($user);
+
+        return $user;
     }
 
     public function user()
@@ -34,7 +39,8 @@ class AuthService
 
     public function logout()
     {
-        Auth::logout();
+        Session::flush();
+        Auth::guard('web')->logout();
     }
 
     public function isAuth()

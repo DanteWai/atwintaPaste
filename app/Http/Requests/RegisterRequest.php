@@ -13,7 +13,7 @@ class RegisterRequest extends ApiRequest
         return [
             'login'=>'required',
             'password'=>'required',
-            'email'=>'required',
+            'email'=>'required|email',
         ];
     }
 

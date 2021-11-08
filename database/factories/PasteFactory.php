@@ -16,9 +16,10 @@ class PasteFactory extends Factory
         return [
             'title' => $this->faker->words(3, true),
             'slug' => $this->faker->unique()->bothify('?#?#?#?#'),
-            'access' => $this->faker->randomElement(['public', 'unlisted', 'private']),
-            'language' => $this->faker->randomElement(['c++', 'js', 'php', null]),
+            'content' => $this->faker->text(100),
             'user_id' => $this->faker->numberBetween(1, 20),
+            'access_id' => $this->faker->numberBetween(1, 3),
+            'lang_id' => $this->faker->randomElement([1,2,3,4, null]),
         ];
     }
 }
