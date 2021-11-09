@@ -52,9 +52,9 @@ class PasteService
     {
         $faker = Faker::create();
 
-        $slug = $faker->bothify('?#?#?#?#');
+        $slug = $faker->regexify('[A-Za-z0-9]{8}');
         while (Paste::whereSlug($slug)->exists()) {
-            $slug = $faker->bothify('?#?#?#?#');;
+            $slug = $faker->regexify('[A-Za-z0-9]{8}');
         }
 
         if($dto->expiration_time){

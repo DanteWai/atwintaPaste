@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::name('pastes.')->prefix('pastes')->group(function(){
 
-    //get pastes for auth user
     Route::middleware(['auth:sanctum'])->group(function () {
+        //get pastes for auth user
         Route::get('/my', [PasteController::class, 'my'])->name('my');
     });
 

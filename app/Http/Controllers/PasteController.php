@@ -6,10 +6,10 @@ use App\Http\Requests\PasteRequest;
 use App\Http\Resources\AccessResource;
 use App\Http\Resources\LangResource;
 use App\Http\Resources\PasteResource;
-use App\Models\Paste;
 use App\Services\PasteService;
 use App\Services\Response\ResponseService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
@@ -62,12 +62,9 @@ class PasteController extends Controller
     {
         $item = $paste->show($slug);
 
-        if (!$item) {
-            ResponseService::notFound();
+        if (!$item || !Gate::inspect('view', $item)->allowed()) {
+            return ResponseService::notFound();
         }
-
-        Gate::authorize('view', $item);
-
 
         return ResponseService::success(
             new PasteResource($item)

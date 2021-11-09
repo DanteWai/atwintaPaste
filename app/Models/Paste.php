@@ -10,6 +10,8 @@ class Paste extends Model
 {
     use HasFactory;
 
+    protected $with = ['user', 'access', 'lang'];
+
     protected $fillable = [
         'title',
         'slug',

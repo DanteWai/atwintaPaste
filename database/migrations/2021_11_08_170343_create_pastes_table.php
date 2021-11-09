@@ -19,7 +19,7 @@ class CreatePastesTable extends Migration
             $table->string('slug')->unique();
             $table->text('content');
 
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->foreignId('access_id')->constrained();
             $table->foreignId('lang_id')->nullable()->constrained();
 

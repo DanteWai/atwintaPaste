@@ -16,7 +16,8 @@ export const checkPermission = (roles, config = {}) => {
     const userRoles = user.value?.roles || []
 
     const hasAccess = checkMethod(roles).bind(roles)(role => {
-        if (role === 'owner') {
+
+        if (role === 'owner' && entityOwnerId) {
             return user.value?.id == entityOwnerId
         }
 

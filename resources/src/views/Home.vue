@@ -135,6 +135,8 @@ const formSubmit = async (e, isValid, trigger, reset) => {
     if (!isValid) {
         return trigger()
     }
+    console.log(e)
+    console.log('submit')
 
     let request = {...form.value}
 
@@ -147,7 +149,9 @@ const formSubmit = async (e, isValid, trigger, reset) => {
     }
 
 
-    if (isLogged) {
+    if (isLogged.value) {
+        console.log('isLogged', isLogged)
+        console.log(user)
         request.user_id = user.value.id
     }
 

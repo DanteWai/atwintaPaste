@@ -19,9 +19,9 @@ class PasteResource extends JsonResource
             'title' => $this->title,
             'slug' => $this->slug,
             'content' => $this->content,
-            'access' => $this->access,
-            'lang' => $this->lang,
-            'user' => $this->user,
+            'access' => new AccessResource($this->whenLoaded('access')),
+            'lang' => new LangResource($this->whenLoaded('lang')),
+            'user' => new UserResource($this->whenLoaded('user')),
             'created_at' => $this->created_at,
         ];
     }
