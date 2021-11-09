@@ -8,7 +8,7 @@ Backend laravel
 Тестовые данные
 >php artisan db:seed
 
-Аутентеификация через Laravel Sanctum, дополнительные настройки вынесены в env.example
+Аутентификация через Laravel Sanctum, дополнительные настройки вынесены в env.example
 
 >SANCTUM_STATEFUL_DOMAINS=localhost:8000,localhost:3000,localhost
 > 
