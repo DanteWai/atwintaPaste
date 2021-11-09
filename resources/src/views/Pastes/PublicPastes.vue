@@ -55,9 +55,7 @@ async function getPublic(page) {
 
 getPublic()
 
-const changePage = ({page}) => {
-    getPublic(page)
-}
+
 
 const prevPage = () => {
     if (meta.value?.current_page > 1) {
