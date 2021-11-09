@@ -1,0 +1,28 @@
+.footer {
+    background-color: #252525;
+    color: #ccc;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+
+    &__left {
+        max-width: 700px;
+        height: 100%;
+        color: #ddd;
+        padding: 18px 10px 10px;
+        line-height: 24px;
+        font-size: 0.9rem;
+    }
+
+    &__links {
+        margin-bottom: 20px;
+    }
+
+    &__link {
+        color: #999;
+        text-decoration: none;
+    }
+
+    &__divider {
+        margin: 0 5px;
+    }
+}

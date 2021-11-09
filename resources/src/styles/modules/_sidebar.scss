@@ -1,0 +1,26 @@
+.sidebar{
+    padding: 1px 10px 0;
+    font-size:0.9rem;
+    &__link{
+        color: #ddd;
+        text-decoration:none;
+    }
+    &__item{
+        background: url('~@/assets/images/public.png') no-repeat 0 7px;
+        background-size: 14px;
+        padding: 5px 0 5px 20px;
+        border-top: 1px dotted #333;
+        font-size: .75rem;
+        line-height: 16px;
+    }
+    &__item-link{
+        color: #81b6de;
+        text-decoration:none;
+        &:hover{
+            color: #999;
+        }
+    }
+    &__item-details{
+        color: #999;
+    }
+}

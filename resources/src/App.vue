@@ -1,18 +1,18 @@
 <template>
-    <router-view />
+    <layout>
+        <router-view/>
+    </layout>
+    <alerts/>
 </template>
+
 <script>
+import Layout from "./layout/Layout";
+import Alerts from "./layout/components/alert/Alert";
+
+
 export default {
-    data() {
-        return {}
-    },
-    mounted() {},
+    components: {Alerts, Layout},
 }
 </script>
 
-<style lang="scss">
-body{
-    background-color: #333;
-    color:#fff;
-}
-</style>
+

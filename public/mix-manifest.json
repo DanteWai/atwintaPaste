@@ -1,5 +1,13 @@
 {
     "/js/main.js": "/js/main.js",
     "/js/manifest.js": "/js/manifest.js",
-    "/js/vendor.js": "/js/vendor.js"
+    "/js/view-Auth-Login-vue.js": "/js/view-Auth-Login-vue.js",
+    "/js/view-Auth-Register-vue.js": "/js/view-Auth-Register-vue.js",
+    "/js/view-NotFound-vue.js": "/js/view-NotFound-vue.js",
+    "/js/view-Pastes-PasteView-vue.js": "/js/view-Pastes-PasteView-vue.js",
+    "/js/view-Pastes-Pastes-vue.js": "/js/view-Pastes-Pastes-vue.js",
+    "/js/view-Profile-Profile-vue.js": "/js/view-Profile-Profile-vue.js",
+    "/css/index.css": "/css/index.css",
+    "/js/vendor.js": "/js/vendor.js",
+    "/js/view-Pastes-PublicPastes-vue.js": "/js/view-Pastes-PublicPastes-vue.js"
 }

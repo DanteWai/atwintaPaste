@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    flex:1;
+    margin-top:50px;
+    background-color: #252525;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #333;
+    border-radius: 0 0 3px 3px;
+    border-right: 1px solid #333;
+    margin-bottom:20px;
+    padding-top: 10px;
+
+    &__content{
+        flex:1;
+        padding: 0 10px 10px 10px;
+
+    }
+
+    &__sidebar{
+        width:320px;
+    }
+}

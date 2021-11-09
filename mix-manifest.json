@@ -1,0 +1,12 @@
+{
+    "/public/js/main.js": "/public/js/main.js",
+    "/public/js/manifest.js": "/public/js/manifest.js",
+    "/public/js/view-Auth-Login-vue.js": "/public/js/view-Auth-Login-vue.js",
+    "/public/js/view-Auth-Register-vue.js": "/public/js/view-Auth-Register-vue.js",
+    "/public/js/view-NotFound-vue.js": "/public/js/view-NotFound-vue.js",
+    "/public/js/view-Pastes-PasteView-vue.js": "/public/js/view-Pastes-PasteView-vue.js",
+    "/public/js/view-Pastes-Pastes-vue.js": "/public/js/view-Pastes-Pastes-vue.js",
+    "/public/js/view-Profile-Profile-vue.js": "/public/js/view-Profile-Profile-vue.js",
+    "/public/css/index.css": "/public/css/index.css",
+    "/public/js/vendor.js": "/public/js/vendor.js"
+}

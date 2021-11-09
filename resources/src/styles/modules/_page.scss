@@ -1,0 +1,59 @@
+.page{
+    &__title{
+        position: relative;
+        font-size: 1em;
+        font-weight: 600;
+        padding: 0 0 5px;
+        border-bottom: 2px solid #333;
+        color: #ddd;
+        &_no-border{
+            border:none;
+        }
+    }
+}
+
+.page-home {
+    padding-top:30px;
+    .page__header{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__syntax-switch{
+        display: flex;
+    }
+    &__syntax-label{
+        margin-right: 20px;
+        font-size: 0.9rem;
+        line-height: 18px;
+    }
+
+    &__columns{
+        display: flex;
+    }
+
+    &__right-column{
+        margin-left:20px;
+        margin-top:14px;
+    }
+}
+
+.page-paste{
+    &__header{
+        margin-top:10px;
+    }
+    &__user{
+        background: url('~@/assets/images/user.png') no-repeat 0 4px;
+        background-size: 16px 16px;
+        padding-left: 21px;
+    }
+    &__date{
+        background: url('~@/assets/images/date.png') no-repeat 0 4px;
+        background-size: 16px 16px;
+        padding-left: 21px;
+        margin-left: 8px;
+    }
+    &__paste{
+        margin-top:20px;
+    }
+}
+

@@ -1,0 +1,32 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+html, body{
+    height: 100%;
+}
+#app{
+    display:flex;
+    flex-direction:column;
+    background-color: #2b2b2b;
+    color: #ddd;
+    min-height: 100%;
+    height: auto;
+    line-height: 24px;
+    font-size: 16px;
+    font-family: segoe ui, trebuchet MS, Lucida Sans Unicode, Lucida Sans, Sans-Serif, serif;
+}
+
+.container{
+    position: relative;
+    margin: 0 auto;
+    max-width: 1340px;
+    width:100%;
+}
+
+.highlight{
+    padding: 0;
+}
+
