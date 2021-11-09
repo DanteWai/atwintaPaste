@@ -1,13 +1,12 @@
 {
-    "/js/main.js": "/js/main.js",
-    "/js/manifest.js": "/js/manifest.js",
-    "/js/view-Auth-Login-vue.js": "/js/view-Auth-Login-vue.js",
-    "/js/view-Auth-Register-vue.js": "/js/view-Auth-Register-vue.js",
-    "/js/view-NotFound-vue.js": "/js/view-NotFound-vue.js",
-    "/js/view-Pastes-PasteView-vue.js": "/js/view-Pastes-PasteView-vue.js",
-    "/js/view-Pastes-Pastes-vue.js": "/js/view-Pastes-Pastes-vue.js",
-    "/js/view-Profile-Profile-vue.js": "/js/view-Profile-Profile-vue.js",
-    "/css/index.css": "/css/index.css",
-    "/js/vendor.js": "/js/vendor.js",
-    "/js/view-Pastes-PublicPastes-vue.js": "/js/view-Pastes-PublicPastes-vue.js"
+    "/js/main.js": "/js/main.js?id=931db952c1fe39c4483a",
+    "/js/manifest.js": "/js/manifest.js?id=21897b227f50b630c1da",
+    "/js/view-Auth-Login-vue.js": "/js/view-Auth-Login-vue.js?id=ac57f1ef178daa350b53",
+    "/js/view-Auth-Register-vue.js": "/js/view-Auth-Register-vue.js?id=842910885866ba0c290d",
+    "/js/view-NotFound-vue.js": "/js/view-NotFound-vue.js?id=aed07a68bc370b885697",
+    "/js/view-Pastes-PasteView-vue.js": "/js/view-Pastes-PasteView-vue.js?id=2ce3d156e1ff264510b7",
+    "/js/view-Pastes-PublicPastes-vue.js": "/js/view-Pastes-PublicPastes-vue.js?id=a67631b3f05ec586de57",
+    "/js/view-Profile-Profile-vue.js": "/js/view-Profile-Profile-vue.js?id=ccc4b3b3d2b40dfc74a1",
+    "/css/index.css": "/css/index.css?id=6ce0502a8be8b293f16b",
+    "/js/vendor.js": "/js/vendor.js?id=521b15d7e85a74532527"
 }

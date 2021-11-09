@@ -15,9 +15,6 @@ if (mix.inProduction()) {
 }
 
 mix.webpackConfig({
-    externals: {
-        sharp: 'commonjs sharp',
-    },
     optimization: {
         splitChunks: {
             cacheGroups: {
