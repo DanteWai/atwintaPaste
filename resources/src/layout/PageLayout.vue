@@ -1,14 +1,14 @@
 <template>
     <div class="page">
-        <div class="page__header">
-            <slot name="header" :title="title">
-                <base-page-title v-if="title">
-                    {{title}}
-                </base-page-title>
-            </slot>
-        </div>
+            <div class="page__header">
+                <slot name="header" :title="title">
+                    <base-page-title v-if="title">
+                        {{title}}
+                    </base-page-title>
+                </slot>
+            </div>
+            <slot></slot>
 
-        <slot/>
     </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
         title:{
             type:String,
             default:'',
-        }
+        },
     }
 }
 </script>

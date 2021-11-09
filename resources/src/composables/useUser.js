@@ -3,7 +3,7 @@ import {authCheck, authLogin, authLogOut, authRegistration} from "../api/authApi
 
 const userState = ref(null)
 
-export const isLogged = computed(() => Boolean(userState.value))
+export const isLogged = computed(() => userState.value !== null)
 
 
 export const getUser = () => readonly(userState)

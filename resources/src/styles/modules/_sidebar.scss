@@ -1,9 +1,18 @@
 .sidebar{
     padding: 1px 10px 0;
     font-size:0.9rem;
+
+    &__block + &__block{
+        margin-top:20px;
+    }
+
+
     &__link{
         color: #ddd;
         text-decoration:none;
+        &:hover{
+            color:#acacac;
+        }
     }
     &__item{
         background: url('~@/assets/images/public.png') no-repeat 0 7px;

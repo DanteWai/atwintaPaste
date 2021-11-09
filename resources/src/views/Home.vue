@@ -94,7 +94,7 @@ import {
 
 import {useUser} from "../composables/useUser";
 import Permission from "../components/common/permission/Permission";
-import {addPaste, getMeta, getMetaState} from "../composables/usePaste";
+import {addPaste, getMeta, getMetaState, refreshPastes} from "../composables/usePaste";
 import {addAlert} from "../composables/useAlert";
 
 const {isLogged, user} = useUser()
@@ -135,8 +135,7 @@ const formSubmit = async (e, isValid, trigger, reset) => {
     if (!isValid) {
         return trigger()
     }
-    console.log(e)
-    console.log('submit')
+
 
     let request = {...form.value}
 
@@ -150,18 +149,17 @@ const formSubmit = async (e, isValid, trigger, reset) => {
 
 
     if (isLogged.value) {
-        console.log('isLogged', isLogged)
-        console.log(user)
         request.user_id = user.value.id
     }
 
-    let {data, error} = await addPaste(request)
+    let {error} = await addPaste(request)
 
     if (error) {
         addAlert({text: 'Error'})
     } else {
-        reset()
         addAlert({text: 'Paste added successfully', type: 'success'})
+
+        reset()
 
         form.value = {
             title: '',
@@ -172,8 +170,8 @@ const formSubmit = async (e, isValid, trigger, reset) => {
         }
 
         highlight.value = false
-
         timestamp.value = Date.now()
+        refreshPastes()
     }
 
 

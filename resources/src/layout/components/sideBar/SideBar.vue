@@ -1,9 +1,9 @@
 <template>
     <aside class="sidebar">
-        <div class="sidebar__title">
+        <div class="sidebar__block">
             <router-link class="sidebar__link" :to="{name: 'PublicPastes'}">Public Pastes</router-link>
             <ul class="sidebar__list">
-                <li class="sidebar__item" v-for="paste in pastes">
+                <li class="sidebar__item" v-for="paste in pasteState.publicPastes">
                     <router-link class="sidebar__item-link" :to="{name:'PasteView', params:{slug:paste.slug}}">
                         {{ paste.title }}
                     </router-link>
@@ -13,10 +13,10 @@
                 </li>
             </ul>
         </div>
-        <div class="sidebar__title" v-if="isLogged">
+        <div class="sidebar__block" v-if="isLogged">
             <router-link class="sidebar__link" :to="{name: 'Profile'}">My Pastes</router-link>
             <ul class="sidebar__list">
-                <li class="sidebar__item" v-for="paste in userPastes">
+                <li class="sidebar__item" v-for="paste in pasteState.privatePastes">
                     <router-link class="sidebar__item-link" :to="{name:'PasteView', params:{slug:paste.slug}}">
                         {{ paste.title }}
                     </router-link>
@@ -30,46 +30,15 @@
 </template>
 
 <script setup>
-import {getPublicPastes, getUserPastes} from "../../../composables/usePaste";
-import {ref, watch} from "vue";
+import {getPasteState} from "../../../composables/usePaste";
 import date from 'date-and-time'
 import {isLogged} from "../../../composables/useUser";
 
-const pastes = ref([])
-const userPastes = ref([])
-
-async function getPublic() {
-    let {data, error} = await getPublicPastes()
-    if (!error) {
-        pastes.value = data.data
-    }
-}
-
-async function getPrivate() {
-    let {data, error} = await getUserPastes()
-    if (!error) {
-        userPastes.value = data.data
-    }
-}
-
-getPublic()
-
-watch(
-    isLogged,
-    (newValue) => {
-        if(newValue){
-            getPrivate()
-        }
-    }
-)
+const pasteState = getPasteState()
 
 
-if (isLogged.value) {
-    getPrivate()
-}
+
 
 </script>
 
-<style scoped lang="scss">
 
-</style>
