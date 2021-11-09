@@ -67,7 +67,6 @@ const changePage = ({page}) => {
 
 const logout = async () => {
     await userLogOut()
-    await router.push('/')
 }
 
 

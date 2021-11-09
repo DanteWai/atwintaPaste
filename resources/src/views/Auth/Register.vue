@@ -17,7 +17,7 @@
                              :error="errors?.password?.[0]"/>
                 </form-section>
                 <form-section>
-                    <v-button>Login</v-button>
+                    <v-button>Register</v-button>
                 </form-section>
                 <template #errors v-if="globalTrigger">
                     <template v-for="errorField in errors">

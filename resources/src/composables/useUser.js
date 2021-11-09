@@ -58,6 +58,7 @@ export const userLogOut = async () => {
 
     if (!error) {
         resetUser()
+        location.href = '/'
     }
 
     return {data, error}

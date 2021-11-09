@@ -32,9 +32,10 @@
 <script setup>
 import {getPasteState} from "../../../composables/usePaste";
 import date from 'date-and-time'
-import {isLogged} from "../../../composables/useUser";
+import {isLogged, useUser} from "../../../composables/useUser";
 
 const pasteState = getPasteState()
+const user = useUser()
 
 
 
