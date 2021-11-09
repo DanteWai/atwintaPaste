@@ -39,7 +39,6 @@ class AuthService
 
     public function logout()
     {
-        Session::flush();
         Auth::guard('web')->logout();
     }
 

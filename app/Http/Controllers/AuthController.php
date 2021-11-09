@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\UserResource;
 use App\Services\AuthService;
 use App\Services\Response\ResponseService;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -27,27 +28,23 @@ class AuthController extends Controller
             );
         }
 
-        return ResponseService::success(
-            new UserResource($auth->user())
-        );
+        return  new UserResource($auth->user());
     }
 
     public function register(RegisterRequest $request, AuthService $auth)
     {
         $user = $auth->register($request->getDto());
-        return ResponseService::success(
-            new UserResource($user)
-        );
+        return new UserResource($user);
     }
 
-    public function logout(AuthService $auth)
+    public function logout(Request $request,AuthService $auth)
     {
         if ($auth->isAuth()) {
             $auth->logout();
         }
 
         return ResponseService::success([
-            'message' =>  __('auth.logout')
+            'message' => __('auth.logout')
         ]);
     }
 
@@ -57,8 +54,6 @@ class AuthController extends Controller
             return ResponseService::notAuthorize();
         }
 
-        return ResponseService::success(
-            new UserResource($auth->user())
-        );
+        return new UserResource($auth->user());
     }
 }
