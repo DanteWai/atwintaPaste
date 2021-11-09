@@ -6,19 +6,24 @@ use App\Http\Controllers\PasteController;
 use Illuminate\Support\Facades\Route;
 
 
-
-
 Route::name('pastes.')->prefix('pastes')->group(function(){
 
+    //get pastes for auth user
     Route::middleware(['auth:sanctum'])->group(function () {
         Route::get('/my', [PasteController::class, 'my'])->name('my');
     });
 
+    //get all public pastes
     Route::get('/', [PasteController::class, 'index'])->name('index');
-    Route::get('/meta', [PasteController::class, 'meta'])->name('meta');
-    Route::get('/{slug}', [PasteController::class, 'show'])->name('show');
-    Route::post('/', [PasteController::class, 'store'])->name('store');
 
+    //get metadata {langs, accesses}
+    Route::get('/meta', [PasteController::class, 'meta'])->name('meta');
+
+    //get one paste
+    Route::get('/{slug}', [PasteController::class, 'show'])->name('show');
+
+    //add paste
+    Route::post('/', [PasteController::class, 'store'])->name('store');
 
 });
 
