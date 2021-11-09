@@ -36,7 +36,9 @@ class AuthController extends Controller
     public function register(RegisterRequest $request, AuthService $auth)
     {
         $user = $auth->register($request->getDto());
-        return ResponseService::success($user);
+        return ResponseService::success(
+            new UserResource($user)
+        );
     }
 
     public function logout(AuthService $auth)

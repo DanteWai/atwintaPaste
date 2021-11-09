@@ -15,10 +15,11 @@ class LangSeeder extends Seeder
     public function run()
     {
         Lang::insert([
-            ['title' => 'C++'],
-            ['title' => 'C#'],
-            ['title' => 'JavaScript'],
-            ['title' => 'PHP'],
+            ['title' => 'C++', 'alias' => 'c++'],
+            ['title' => 'C#', 'alias' => 'csharp'],
+            ['title' => 'JavaScript', 'alias' => 'js'],
+            ['title' => 'PHP', 'alias' => 'php'],
+            ['title' => 'Css', 'alias' => 'css'],
         ]);
     }
 }

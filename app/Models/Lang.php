@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Lang extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    public function pastes(){
+        return $this->hasMany(Paste::class);
+    }
 }

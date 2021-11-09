@@ -16,6 +16,7 @@ class CreateLangsTable extends Migration
         Schema::create('langs', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
+            $table->string('alias')->unique();
         });
     }
 

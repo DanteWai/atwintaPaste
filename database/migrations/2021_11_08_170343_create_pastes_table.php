@@ -24,6 +24,7 @@ class CreatePastesTable extends Migration
             $table->foreignId('lang_id')->nullable()->constrained();
 
             $table->timestamp('expiration_time')->nullable();
+
             $table->timestamps();
         });
     }

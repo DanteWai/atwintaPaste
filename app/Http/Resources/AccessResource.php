@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PasteResource extends JsonResource
+class AccessResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,12 +17,6 @@ class PasteResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'slug' => $this->slug,
-            'content' => $this->content,
-            'access' => $this->access,
-            'lang' => $this->lang,
-            'user' => $this->user,
-            'created_at' => $this->created_at,
         ];
     }
 }
