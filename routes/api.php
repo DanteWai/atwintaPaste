@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasteController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,11 +24,6 @@ Route::name('pastes.')->prefix('pastes')->group(function(){
     //add paste
     Route::post('/', [PasteController::class, 'store'])->name('store');
 
-});
-
-Route::name('users.')->prefix('users')->group(function(){
-    Route::get('/', [UserController::class, 'index'])->name('index');
-    Route::post('/{id}', [UserController::class, 'show'])->name('show');
 });
 
 Route::name('auth.')->prefix('auth')->group(function(){

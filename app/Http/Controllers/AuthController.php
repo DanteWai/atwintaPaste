@@ -23,7 +23,7 @@ class AuthController extends Controller
             return ResponseService::send(
                 false,
                 401,
-                ['message' => 'Login or password is incorrect']
+                ['message' => __('auth.incorrect')]
             );
         }
 
@@ -47,7 +47,7 @@ class AuthController extends Controller
         }
 
         return ResponseService::success([
-            'message' => 'logout success'
+            'message' =>  __('auth.logout')
         ]);
     }
 

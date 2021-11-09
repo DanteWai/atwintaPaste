@@ -9,15 +9,13 @@ use App\Http\Resources\PasteResource;
 use App\Services\PasteService;
 use App\Services\Response\ResponseService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Http\Request;
 
 class PasteController extends Controller
 {
 
 
-    public function meta(PasteService $paste)
+    public function meta(PasteService $paste): JsonResponse
     {
         return ResponseService::success([
             'langs' => LangResource::collection($paste->langs()),
@@ -25,7 +23,7 @@ class PasteController extends Controller
         ]);
     }
 
-    public function my(PasteService $paste)
+    public function my(PasteService $paste): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
         return PasteResource::collection($paste->my());
     }
@@ -33,21 +31,19 @@ class PasteController extends Controller
 
     public function index(PasteService $paste)
     {
-
         return PasteResource::collection($paste->public());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param PasteService $paste
+     * @param PasteRequest $request
      * @return PasteResource
      */
-    public function store(PasteService $paste, PasteRequest $request)
+    public function store(PasteService $paste, PasteRequest $request): PasteResource
     {
-        //
         $data = $paste->addPaste($request->getDto());
-
         return new PasteResource($data);
     }
 
@@ -56,7 +52,7 @@ class PasteController extends Controller
      *
      * @param PasteService $paste
      * @param $slug
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse|PasteResource
      */
     public function show(PasteService $paste, $slug)
     {
@@ -66,31 +62,7 @@ class PasteController extends Controller
             return ResponseService::notFound();
         }
 
-        return ResponseService::success(
-            new PasteResource($item)
-        );
+        return new PasteResource($item);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
