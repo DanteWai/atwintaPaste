@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PasteRequest;
 use App\Http\Resources\AccessResource;
 use App\Http\Resources\LangResource;
 use App\Http\Resources\PasteResource;
@@ -40,11 +41,14 @@ class PasteController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return PasteResource
      */
-    public function store(Request $request)
+    public function store(PasteService $paste, PasteRequest $request)
     {
         //
+        $data = $paste->addPaste($request->getDto());
+
+        return new PasteResource($data);
     }
 
     /**

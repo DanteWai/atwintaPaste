@@ -8,10 +8,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::middleware('auth:sanctum')->name('pastes.')->prefix('pastes')->group(function(){
+Route::name('pastes.')->prefix('pastes')->group(function(){
+
+    Route::middleware(['auth:sanctum'])->group(function () {
+        Route::get('/my', [PasteController::class, 'my'])->name('my');
+    });
+
     Route::get('/', [PasteController::class, 'index'])->name('index');
-    Route::get('/{id}', [PasteController::class, 'show'])->name('show');
-    Route::post('/', [PasteController::class, 'index'])->name('store');
+    Route::get('/meta', [PasteController::class, 'meta'])->name('meta');
+    Route::get('/{slug}', [PasteController::class, 'show'])->name('show');
+    Route::post('/', [PasteController::class, 'store'])->name('store');
+
+
 });
 
 Route::name('users.')->prefix('users')->group(function(){

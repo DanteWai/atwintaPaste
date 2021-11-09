@@ -7,7 +7,6 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\UserResource;
 use App\Services\AuthService;
 use App\Services\Response\ResponseService;
-use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
